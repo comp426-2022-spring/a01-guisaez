@@ -24,8 +24,9 @@ const port = args['port'] || process.env.PORT || 3000
 
 fs.readFile('./www/index.html', 'utf8', (err, data) => {
     if (err) {
-        console.error(1)
+        console.error(err)
         return
+        process.exit(1)
     }
 
     const server = http.createServer((req, res) => {
